@@ -1,0 +1,1 @@
+https://www.todoespacoonline.com/w/2014/04/lacos-em-javascript/
