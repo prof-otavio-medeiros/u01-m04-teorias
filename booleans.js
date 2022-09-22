@@ -1,35 +1,29 @@
 function info(data) {
   if (typeof data === "string") {
     console.log(`let data = '${data}';\n`);
-    console.log(`\tdata => ${data}`);
   } else if (Array.isArray(data)) {
     console.log(`let data = [${data}];\n`);
-    console.log(`\tdata => ${data}`);
   } else if (typeof data === "object") {
     if (data === null) {
       console.log(`let data = null;\n`);
-      console.log(`\tdata => ${data}`);
     } else if (
       data &&
       Object.keys(data).length === 0 &&
       Object.getPrototypeOf(data) === Object.prototype
     ) {
       console.log(`let data = {};\n`);
-      console.log(`\tdata => {}`);
     } else {
       console.log(`let data = ${JSON.stringify(data)};\n`);
-      console.log(`\tdata => ${JSON.stringify(data)}`);
     }
   } else {
     console.log(`let data = ${data};\n`);
   }
-  console.log(`\ttypeof data => ${typeof data}`);
-  console.log(`\t!data => ${!data}`);
-  console.log(`\ttypeof !data => ${typeof !data}`);
-  console.log(`\t!!data => ${!!data}`);
-  console.log(`\ttypeof !!data => ${typeof !!data}`);
-  console.log(`\t!!!data => ${!!!data}`);
-  console.log(`\ttypeof !!!data => ${typeof !!!data}`);
+  console.log(`\ttypeof data         => ${typeof data}`);
+  console.log(`\t!data               => ${!data}`);
+  console.log(`\ttypeof !data        => ${typeof !data}`);
+  console.log(`\t!!data              => ${!!data}`);
+  console.log(`\tdata ? true : false => ${data ? true : false}`);
+  console.log(`\t!!!data             => ${!!!data}`);
   console.log();
 }
 
@@ -37,8 +31,8 @@ info(true);
 info(false);
 info(1);
 info(1.1);
-info(0);
-info(0.0);
+info(0); // the only number interpreted as false
+info(0.0); // the only number interpreted as false
 info(3.1415926);
 info(-3.1415926);
 info("TRUE");
@@ -55,7 +49,7 @@ info(null);
 info(NaN);
 info(undefined);
 info(Infinity);
-info((val = 2));
-info((val = false));
+info((val = 2)); // assignment returns assigned value
+info((val = false)); // assignment returns assigned value
 
 // console.log("EXPRESSIONS...");
